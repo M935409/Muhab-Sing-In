@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج التسجيل الجامعي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .header-container {
+            background-color: #4B9CD3;
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+            color: rgb(255, 255, 255);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .header-container h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .header-container h2 {
+            font-size: 16px;
+        }
+
+        .container {
+            background-color: #4B9CD3;
+            border-radius: 30px;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input, form select, form button {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        form input[type="text"], form input[type="email"], form input[type="tel"], form select, form input[type="file"] {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        form button {
+            background-color: #e94747;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0473f1;
+        }
+
+        .success-message {
+            color: #00ff3c;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 600px) {
+            .header-container h1 {
+                font-size: 18px;
+            }
+
+            .header-container h2 {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 15px;
+                width: 90%;
+                margin-top: 10px;
+            }
+
+            form label {
+                font-size: 14px;
+            }
+
+            form input, form select, form button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            form button {
+                font-size: 16px;
+            }
+
+            .header-container img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="logo.jpeg" alt="شعار جامعة ود مدني" class="logo">
+        <h1 style="font-size: 28px; font-weight: bold;">جامعة ود مدني للعلوم الطبية والتكنولوجيا</h1>
+        <h2 style="font-size: 22px; font-weight: bold;">نموذج التسجيل الجامعي</h2>
+    </div>
+    
+
+    <div class="container">
+        <form id="registrationForm" method="POST" action="send_email.php" enctype="multipart/form-data">
+            <label for="fullName">الاسم الكامل</label>
+            <input type="text" id="fullName" name="fullName" placeholder="أدخل اسمك الكامل" required>
+
+            <label for="dob">تاريخ الميلاد</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">الجنس</label>
+            <select id="gender" name="gender" required>
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+            </select>
+
+            <label for="nationality">الجنسية</label>
+            <input type="text" id="nationality" name="nationality" placeholder="أدخل الجنسية" required>
+
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+
+            <label for="parentPhone">رقم هاتف ولي الأمر</label>
+            <input type="tel" id="parentPhone" name="parentPhone" placeholder="أدخل رقم  هاتف ولي الأمر" required>
+
+            <label for="address">عنوان السكن</label>
+            <input type="text" id="address" name="address" placeholder="أدخل عنوانك" required>
+
+            <label for="religion">الديانة (اختياري)</label>
+            <input type="text" id="religion" name="religion" placeholder="أدخل ديانتك">
+
+            <label for="school">المدرسة السابقة</label>
+            <input type="text" id="school" name="school" placeholder="أدخل اسم المدرسة أو المؤسسة السابقة" required>
+
+            <label for="graduationYear">السنة الدراسية التي تخرجت فيها من المدرسة</label>
+            <input type="text" id="graduationYear" name="graduationYear" placeholder="أدخل السنة" required>
+
+            <label for="major">التخصص الذي ترغب في دراسته</label>
+            <select id="major" name="major" required>
+                <option value="medicine">الطب</option>
+                <option value="pharmacy">الصيدلة</option>
+                <option value="business_administration">العلوم الإدارية</option>
+                <option value="information_technology">تقنية المعلومات</option>
+                <option value="computer_science">علوم الكمبيوتر</option>
+                <option value="accounting">المحاسبة</option>
+                <option value="marketing">التسويق</option>
+                <option value="nursing">التمريض</option>
+                <option value="business_management">إدارة الأعمال</option>
+                <option value="graphic_design">مختبرات </option>
+            </select>
+
+            <label for="gpa">النسبة التي احرزتها في الشهادة الثانويه</label>
+            <input type="text" id="gpa" name="gpa" placeholder="أدخل النسبة">
+
+            <label for="highSchoolCertificate">صورة الشهادة الثانوية</label>
+            <input type="file" id="highSchoolCertificate" name="highSchoolCertificate" accept="image/*" required>
+
+            <label for="image">صورة شخصية بخلفيه بيضاء</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <button type="submit">إرسال التسجيل</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+           تم ارسال تسجيلك لجامعة ود مدني الطبية بنجاح . سوف نراجع طلبك . الرجاء التوجهة الى الجامعة لاكمال باقي الاجراءات اللازمة
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إرسال النموذج بشكل افتراضي
+
+            // عرض الرسالة
+            document.getElementById('successMessage').style.display = 'block';
+
+            // إعادة تعيين النموذج بعد عرض الرسالة
+            setTimeout(function() {
+                document.getElementById('registrationForm').reset();
+            }, 3000); // إعادة تعيين النموذج بعد 3 ثواني
+        });
+    </script>
+</body>
+</html>
