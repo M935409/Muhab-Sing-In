@@ -64,9 +64,27 @@
         }
 
         form label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: right;  /* محاذاة النص إلى اليمين */
+    direction: rtl; /* تحديد اتجاه الكتابة من اليمين لليسار */
+}
+
+form input, form select {
+    text-align: right;  /* محاذاة النص داخل الحقول إلى اليمين */
+    direction: rtl; /* تحديد اتجاه الكتابة من اليمين لليسار */
+}
+
+/* عدم تعديل تنسيق النص في الأزرار */
+form button {
+    background-color: #e94747;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
 
         form input, form select, form button {
             padding: 12px;
@@ -364,14 +382,14 @@
         
         <div id="successModal" class="modal">
             <div class="modal-content">
-                <div class="modal-header">نجاح ✔</div>
+                <div class="modal-header"> ✔ نجاح </div>
                 <p>تم ارسال تسجيلك لجامعة ود مدني الطبية بنجاح. سوف نراجع طلبك. الرجاء التوجه الى الجامعة لاكمال باقي الاجراءات اللازمة.</p>
                 <button class="close-btn" onclick="closeModal()">إغلاق</button>
             </div>
         </div>
         
         <div id="loading" class="loading">
-            الرجاء الانتظار<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+         <span class="dots"><span>.</span><span>.</span><span>.</span></span>الرجاء الانتظار 
         </div>
         
         <script>
